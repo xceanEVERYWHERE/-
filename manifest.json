@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "智慧树助手一体版",
+  "version": "2.1.2",
+  "description": "一个扩展完成原速连续播放、随堂题辅助与相邻视频切换，章节测试手动完成。",
+  "minimum_chrome_version": "125",
+  "permissions": ["debugger", "storage", "clipboardWrite"],
+  "host_permissions": [
+    "https://wisdom-mooc.zhihuishu.com/*",
+    "https://studyvideoh5.zhihuishu.com/*",
+    "https://studyh5.zhihuishu.com/*",
+    "https://www.zhihuishu.com/*",
+    "https://api.deepseek.com/*"
+  ],
+  "background": {"service_worker": "service-worker.js"},
+  "action": {"default_title": "智慧树助手：共享课点击开启或关闭本页输入"},
+  "options_ui": {"page": "options.html", "open_in_tab": true},
+  "content_scripts": [
+    {
+      "matches": ["https://wisdom-mooc.zhihuishu.com/study/index*"],
+      "js": ["modern-navigation.js"],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://wisdom-mooc.zhihuishu.com/study/index*",
+        "https://studyvideoh5.zhihuishu.com/stuStudy*",
+        "https://studyh5.zhihuishu.com/videoStudy*",
+        "https://www.zhihuishu.com/"
+      ],
+      "js": ["protocol.js", "input-content.js", "runtime.js", "helper-core.js"],
+      "world": "ISOLATED",
+      "run_at": "document_idle",
+      "all_frames": false,
+      "match_about_blank": false
+    }
+  ]
+}

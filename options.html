@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>智慧树助手 · 设置</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f1f5fa;color:#172337;font:16px/1.7 system-ui,sans-serif}main{max-width:660px;margin:52px auto;padding:0 22px}h1{font-size:28px;margin:0 0 8px}p{margin:8px 0 22px;color:#50627a}.card{background:white;border:1px solid #d9e2ed;border-radius:16px;padding:26px;margin-top:20px}label{display:block;margin:16px 0 5px}input[type=password],input[type=text]{width:100%;padding:11px 12px;border:1px solid #bdcbdc;border-radius:8px;font:inherit}input[type=checkbox]{margin-right:8px}button{font:inherit;cursor:pointer;padding:9px 16px;border-radius:8px;border:1px solid #bfcbdd;background:white;color:#172337;margin:14px 8px 0 0}button.primary{background:#255fd1;color:white;border-color:#255fd1}button:disabled{opacity:.6;cursor:wait}.hint{font-size:14px;color:#617187;margin:4px 0 14px}#status{min-height:30px;margin-top:18px;white-space:pre-wrap}#status[data-error=true]{color:#a12828}footer{font-size:14px;color:#617187;margin:22px 0}a{color:#255fd1}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>智慧树助手一体版</h1>
+    <p>配置后返回课程页，在助手面板点击“开始”。</p>
+    <form class="card" id="settings">
+      <label for="apiKey">DeepSeek API Key</label>
+      <input id="apiKey" type="password" autocomplete="new-password" spellcheck="false" placeholder="输入新密钥；留空保留已保存的密钥">
+      <div id="keyState" class="hint">正在读取密钥状态…</div>
+      <label for="model">模型</label>
+      <input id="model" type="text" value="deepseek-flash" maxlength="128" spellcheck="false" required>
+      <label><input id="mute" type="checkbox" checked>静音播放</label>
+      <label><input id="next" type="checkbox" checked>完整播完后自动播放下一节</label>
+      <label><input id="autoSubmit" type="checkbox" checked>自动处理随堂弹题</label>
+      <div class="hint">保持 1 倍速，完整播放结束后等待 5 秒再切课；章节测试由你手动完成。保存新设置会暂停当前任务。</div>
+      <button class="primary" type="submit">保存设置</button>
+      <button id="clearKey" type="button">清除已保存的密钥</button>
+      <button id="reload" type="button">重新读取设置</button>
+      <div id="status" role="status" aria-live="polite"></div>
+    </form>
+    <footer>密钥仅保存在本扩展的本地存储中，用于向 DeepSeek 请求答案。随堂题文字与选项会发送到 DeepSeek，可能产生接口费用。共享课页面还需点击扩展图标，显示 ON 后才能自动选择和切课。</footer>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# 本地配置与敏感信息
+.env
+.env.*
+!.env.example
+secrets/
+*.key
+
+# 本地工作文件与发布产物
+work/
+outputs/
+dist/
+node_modules/
+*.log
+*.zip
+.DS_Store
+Thumbs.db
