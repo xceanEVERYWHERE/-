@@ -1,6 +1,6 @@
 # 智慧树助手一体版
 
-[下载最新版安装包](https://github.com/xudahai76-dotcom/-/raw/refs/heads/main/zhihuishu-assistant-v2.1.2.zip) · 当前版本 **2.1.2**
+[下载最新版安装包](https://github.com/xceanEVERYWHERE/-/releases/tag/v2.1.2) · 当前版本 **2.1.2**
 
 一个 Chrome 扩展，提供智慧树课程原速连续播放和 DeepSeek 随堂题辅助。视频完整播放结束后等待 **5 秒**再切下一节，跨章继续播放；**章节测试和考试自行完成**。无需另外安装 Tampermonkey 脚本或辅助扩展。
 
